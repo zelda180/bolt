@@ -1,1 +1,69 @@
-Hello github... I really like you... Please dont think I am a bad person
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>Bolt</title>
+
+    <link rel="icon" href="image/icon.jpg" type="image/x-icon">
+    
+    <!--bower-->
+    <!--
+    <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.min.css"/>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+    -->
+    <!--bower-->
+    
+    <!--cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.9/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.13.0/angular-translate.min.js"></script>
+    <!--cdn-->
+    
+    <script src="js/sjcl.min.js"></script>
+    <script src="js/bitcoinjs.min.js"></script>
+    <script src="js/lang.js"></script>
+    <script src="js/iso.js" charset="utf-8"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/translate.js"></script>
+</head>
+
+<body>
+    <a href="https://github.com/vladimirtahl/bolt">
+        <img
+            style="position:absolute;top:0;right:0;border:0;"
+            src="image/github.png"
+            alt="Fork me on GitHub"
+        >
+    </a>
+    <div class="container">
+        <div class="page-header">
+            <h1>Bolt
+                <small>{{'SUBTITLE'|translate}}</small>
+            </h1>
+        </div>
+        <div ui-view>
+    	</div>
+    </div>
+    <div style="height:30px"></div>
+    <div class="container jumbotron text-center">
+        <p>{{'DONATION1'|translate}}</p>
+        <p>{{'DONATION2'|translate}}</p>
+        <h2>1M4dMXZer3majCTxCCLjmHuKoJmRZKgqG4</h2>
+    </div>
+</body>
+
+</html>

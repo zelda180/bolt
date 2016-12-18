@@ -1,0 +1,90 @@
+<table
+    class   = "
+        table
+        table-striped
+        table-bordered
+        table-condensed
+        text-center
+    "
+>
+    <thead>
+        <tr>
+            <th class="text-center" colspan="100%">
+                {{'ADDRESS'|translate}}: {{address.address}}
+            </th>
+        </tr>
+        <tr>
+            <th class="text-center" colspan="100%">
+                <button
+                    class="btn btn-primary btn-lg"
+                    ng-click="go('wallet')"
+                >
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    {{'BTN_WALLET'|translate}}
+                </button>
+                <button
+                    class="btn btn-info btn-lg"
+                    ng-click="go('transaction', {
+                        address: address.address
+                    })"
+                >
+                    <span class="glyphicon glyphicon-random"></span>
+                    {{'BTN_NEW'|translate}}
+                </button>
+            </th>
+        </tr>
+        <tr>
+            <th colspan="100%" class="text-center">
+                <pager page="data.page" max="data.max"></pager>
+            </th>
+        </tr>
+        <tr>
+            <th class="text-center">
+                {{'DATE'|translate}}
+            </th>
+            <th class="text-center">
+                {{'TRANSACTION'|translate}}
+            </th>
+            <th class="text-center">
+                {{'TOTAL'|translate}} (mbtc): {{address.balance | number:2}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tx in address.transactions">
+            <td>{{tx.date}}</td>
+            <td>
+                <a ng-click="toogleTx(tx.hash)">{{tx.hash}}</a>
+                <p ng-show="tx.hash == $parent.tx.hash">
+                    {{'ADDRESSES'|translate}} [mbtc]
+                </p>
+                <p
+                    ng-repeat="inp in $parent.tx.inputs"
+                    class="text-danger"
+                    ng-show="tx.hash == $parent.$parent.tx.hash"
+                >
+                    {{inp.address}} [{{inp.value | number:2}}]
+                </p>
+                <p
+                    class="text-warning"
+                    ng-show="tx.hash == $parent.tx.hash"
+                >
+                    {{'FEE'|translate}} [{{$parent.tx.fee | number:2}}]
+                </p>
+                <p
+                    ng-repeat="out in $parent.tx.outputs"
+                    class="text-success"
+                    ng-show="tx.hash == $parent.$parent.tx.hash"
+                >
+                    {{out.address}} [{{out.value | number:2}}]
+                </p>
+            </td>
+            <td ng-class="{
+                'text-danger' : tx.result < 0,
+                'text-success' : tx.result > 0
+            }">
+                {{tx.result | number:2}}
+            </td>
+        </tr>
+    </tbody>
+</table>

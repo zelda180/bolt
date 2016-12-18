@@ -1,0 +1,95 @@
+<form>
+    <div class="form-group" ng-hide="data.tx.length">
+        <button
+            class="btn btn-danger btn-lg"
+            ng-click="go('transactions', {address: data.address})"
+        >
+            <span class="glyphicon glyphicon-remove"></span>
+            {{'BTN_CANCEL'|translate}}
+        </button>
+    </div>
+    <div class="form-group" ng-show="data.tx.length">
+        <button
+            class="btn btn-danger btn-lg"
+            ng-click="load()"
+        >
+            <span class="glyphicon glyphicon-remove"></span>
+            {{'BTN_CANCEL'|translate}}
+        </button>
+    </div>
+    <div class="form-group">
+        <p class="form-control-static">
+            <b>{{'ADDRESS'|translate}}:</b>
+            {{data.address}}
+        </p>
+    </div>
+    <div class="form-group">
+        <p class="form-control-static">
+            <b>{{'BALANCE'|translate}} (mbtc):</b>
+            {{data.balance | number:2}}
+        </p>
+    </div>
+    <div class="form-group">
+        <p class="form-control-static">
+            <b>{{'RECOMENDED'|translate}} (satoshi/byte):</b>
+            {{data.miner}}
+        </p>
+    </div>
+    <div class="form-group" ng-hide="data.tx.length">
+        <input
+            type="text"
+            class="form-control input-lg"
+            ng-model="data.send"
+            placeholder="{{'SEND'|translate}}"
+        >
+    </div>
+    <div class="form-group" ng-hide="data.tx.length">
+        <input
+            type="text"
+            class="form-control input-lg"
+            ng-model="data.value"
+            placeholder="{{'VALUE'|translate}} (0.00 mbtc)"
+        >
+    </div>
+    <div class="form-group" ng-show="data.tx.length">
+        <p class="form-control-static">
+            <b>{{'SEND'|translate}}:</b> {{data.send}}
+        </p>
+    </div>
+    <div class="form-group" ng-show="data.tx.length">
+        <p class="form-control-static">
+            <b>{{'VALUE'|translate}} (mbtc):</b> {{data.value}}
+        </p>
+    </div>
+    <div class="form-group" ng-show="data.tx.length">
+        <p class="form-control-static">
+            <b>{{'FEE'|translate}} (mbtc):</b> {{data.fee}}
+        </p>
+    </div>
+    <div class="form-group" ng-show="data.tx.length">
+        <p class="form-control-static">
+            <b>{{'SIZE'|translate}} (bytes):</b> {{data.tx.length / 2}}
+        </p>
+    </div>
+    <div class="form-group" ng-show="data.tx.length">
+        <p class="form-control-static">
+            <b>{{'TOTAL'|translate}} (mbtc):</b> {{data.value + data.fee}}
+        </p>
+    </div>
+    <button
+        class="btn btn-warning btn-lg btn-block"
+        ng-click="build()"
+        ng-hide="data.tx.length"
+    >
+        <span class="glyphicon glyphicon-cog"></span>
+        {{'BUILD'|translate}}
+    </button>
+    <button
+        class="btn btn-success btn-lg btn-block"
+        ng-click="run()"
+        ng-show="data.tx.length"
+    >
+        <span class="glyphicon glyphicon-ok"></span>
+        {{'SEND_TX'|translate}}
+    </button>
+</form>

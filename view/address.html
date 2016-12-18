@@ -1,0 +1,26 @@
+<form>
+    <div class="form-group">
+        <button
+            class="btn btn-danger btn-lg"
+            ng-click="go('wallet')"
+        >
+            <span class="glyphicon glyphicon-remove"></span>
+            {{'BTN_CANCEL'|translate}}
+        </button>
+    </div>
+    <div class="form-group">
+        <input
+            type="text"
+            class="form-control input-lg"
+            ng-model="data.privateKey"
+            placeholder="Private Key (Leave blank for new address)"
+        >
+    </div>
+    <button
+        class="btn btn-success btn-lg btn-block"
+        ng-click="run()"
+    >
+        <span class="glyphicon glyphicon-ok"></span>
+        {{'BTN_GET'|translate}}
+    </button>
+</form>

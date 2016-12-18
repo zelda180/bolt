@@ -1,0 +1,92 @@
+<div class="form-group">
+    <select
+        class="form-control input-lg"
+        ng-model="lang"
+        ng-options="lang.id as lang.label for lang in langs"
+    >
+    </select>
+</div>
+<div class="alert alert-danger" ng-show="view.modified">
+    <strong>{{'WARNING_UNSAVED_TITLE'|translate}}</strong>
+    {{'WARNING_UNSAVED_TEXT'|translate}}
+</div>
+<table
+    class   = "
+        table
+        table-striped
+        table-bordered
+        table-condensed
+        text-center
+    "
+>
+    <thead>
+        <tr>
+            <th class="text-center" colspan="100%">
+                <button
+                    class="btn btn-warning btn-lg"
+                    ng-click="go('address')"
+                >
+                    <span class="glyphicon glyphicon-btc"></span>
+                    {{'BTN_GET'|translate}}
+                </button>
+                <button
+                    class="btn btn-success btn-lg"
+                    ng-click="go('save')"
+                >
+                    <span class="glyphicon glyphicon-save"></span>
+                    {{'BTN_SAVE'|translate}}
+                </button>
+                <button
+                    class="btn btn-primary btn-lg"
+                    ng-click="go('import')"
+                >
+                    <span class="glyphicon glyphicon-file"></span>
+                    {{'BTN_IMPORT'|translate}}
+                </button>
+            </th>
+        </tr>
+        <tr>
+            <th class="text-center">
+                <span class="glyphicon glyphicon-random">
+                </span>
+            </th>
+            <th class="text-center" ng-click="
+                data.sort='address';
+                data.reverse=!data.reverse
+            ">
+                {{'ADDRESSES'|translate}}
+                ({{data.addresses.length}})
+            </th>
+            <th class="text-center" ng-click="
+                data.sort='balance';
+                data.reverse=!data.reverse
+            ">
+                {{'BALANCE'|translate}} (mbtc):
+                {{data.balance | number:2}}
+            </th>
+            <th class="text-center" ng-click="
+                data.sort='transactions';
+                data.reverse=!data.reverse
+            ">
+                {{'TRANSACTIONS'|translate}}
+                ({{data.transactions}})
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="a in data.addresses | orderBy : data.sort : data.reverse">
+            <th class="text-center">
+                <button
+                    class="btn btn-info btn-sm"
+                    ng-click="go('transactions', {address:a.address})"
+                >
+                    <span class="glyphicon glyphicon-random">
+                    </span>
+                </button>
+            </th>
+            <td>{{a.address}}</td>
+            <td>{{a.balance | number:2}}</td>
+            <td>{{a.transactions}}</td>
+        </tr>
+    </tbody>
+</table>

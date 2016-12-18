@@ -1,0 +1,33 @@
+<div>
+<button
+    ng-attr-class="btn btn-default {{page <= 1 ? 'disabled' : ''}}"
+    ng-click="page=1"
+>
+    <span class="glyphicon glyphicon-fast-backward">
+    </span>
+</button>
+<button
+    ng-attr-class="btn btn-default {{page <= 1 ? 'disabled' : ''}}"
+    ng-click="page=page>1?page-1:1"
+>
+    <span class="glyphicon glyphicon-step-backward">
+    </span>
+</button>
+<label>
+    {{'PAGER'|translate}} ({{page}} / {{max}})
+</label>
+<button
+    ng-attr-class="btn btn-default {{page >= max ? 'disabled' : ''}}"
+    ng-click="page=page<max?page+1:max"
+>
+    <span class="glyphicon glyphicon-step-forward">
+    </span>
+</button>
+<button
+    ng-attr-class="btn btn-default {{page >= max ? 'disabled' : ''}}"
+    ng-click="page = max"
+>
+    <span class="glyphicon glyphicon-fast-forward">
+    </span>
+</button>
+</div>

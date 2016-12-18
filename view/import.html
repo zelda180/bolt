@@ -1,0 +1,38 @@
+<form>
+    <div class="form-group">
+        <button
+            class="btn btn-danger btn-lg"
+            ng-click="go('wallet')"
+        >
+            <span class="glyphicon glyphicon-remove"></span>
+            {{'BTN_CANCEL'|translate}}
+        </button>
+    </div>
+    <div class="alert alert-danger" ng-show="view.modified">
+        <strong>{{'ERROR_UNSAVED_TITLE'|translate}}</strong>
+        {{'ERROR_UNSAVED_TEXT'|translate}}
+    </div>
+    <div class="form-group">
+        <input
+            class="form-control input-lg"
+            type="file"
+            accept='text/plain'
+            file-model="file"
+        />
+    </div>
+    <div class="form-group">
+        <input
+            type="password"
+            class="form-control input-lg"
+            ng-model="data.password"
+            placeholder="Password (leave in blank for plain text)"
+        >
+    </div>
+    <button
+        class="btn btn-success btn-lg btn-block"
+        ng-click="run()"
+    >
+        <span class="glyphicon glyphicon-ok"></span>
+        {{'BTN_IMPORT'|translate}}
+    </button>
+</form>

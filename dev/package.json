@@ -1,0 +1,20 @@
+{
+  "name": "bolt",
+  "version": "1.0.0",
+  "description": "create min js files and language support",
+  "main": "app.js",
+  "scripts": {
+    "bitcoin": "browserify -r bitcoinjs-lib -s bitcoin | uglifyjs > ../js/bitcoinjs.min.js",
+    "sjcl": "browserify -r sjcl -s sjcl | uglifyjs > ../js/sjcl.min.js",
+    "languages": "./lang.py",
+    "build": "npm run bitcoin; npm run sjcl; npm run languages"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bitcoinjs-lib": "^2.3.0",
+    "browserify": "^13.1.1",
+    "sjcl": "^1.0.6",
+    "uglifyjs": "^2.4.10"
+  }
+}

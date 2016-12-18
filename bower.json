@@ -1,0 +1,25 @@
+{
+  "name": "bolt",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.6",
+    "ui-router": "~0.3.0",
+    "bootstrap-css-only": "~3.3.6",
+    "angular-bootstrap": "^2.3.0",
+    "angular-sanitize": "^1.5.9",
+    "angular-translate": "^2.13.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2",
+    "chai": "^3.5.0",
+    "angular-mocks": "^1.5.8"
+  }
+}
